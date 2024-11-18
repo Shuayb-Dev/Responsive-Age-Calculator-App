@@ -10,7 +10,6 @@ function calculateAge() {
   let birthYear = document.getElementById("year").value;
 
   // Calculate age in years
-  //Fix day calculation
   let ageYear = today - birthYear;
   let ageMonth = month - birthMonth;
   let ageDay = day - birthDay;
@@ -28,6 +27,7 @@ function calculateAge() {
               <i><span>${ageDay}</span> days</i>
             </p>`;
 }
+
 function errorCheck() {
   let dayContainer = document.getElementById("day");
   let dayValue = dayContainer.value;
@@ -47,3 +47,5 @@ function errorCheck() {
     errorMessage.style.display = "none";
   }
 }
+
+//Man will hop on this tomorrow
