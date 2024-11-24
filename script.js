@@ -26,6 +26,7 @@ function calculateAge() {
               <i><span>${ageDay}</span> days</i>
             </p>`;
 }
+
 function errorCheck() {
   let dayContainer = document.getElementById("day");
   let dayValue = dayContainer.value;
@@ -45,3 +46,5 @@ function errorCheck() {
     errorMessage.style.display = "none";
   }
 }
+
+//Man will hop on this tomorrow
