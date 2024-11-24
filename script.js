@@ -8,8 +8,7 @@ function calculateAge() {
   let birthDay = document.getElementById("day").value;
   let birthMonth = document.getElementById("month").value;
   let birthYear = document.getElementById("year").value;
-
-  // Calculate age in years
+  //We getting active again
   let ageYear = today - birthYear;
   let ageMonth = month - birthMonth;
   let ageDay = day - birthDay;
