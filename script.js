@@ -46,6 +46,16 @@ function errorCheck() {
   let dayValue = dayContainer.value;
   let errorMessage = document.getElementById("error-message");
 
+  let monthContainer = document.getElementById("month");
+  let monthValue = monthContainer.value;
+  let monthErrorMessage = document.getElementById("month-error-message");
+
+  let today = new Date();
+  let currentYear = today.getFullYear();
+  let yearContainer = document.getElementById("year");
+  let yearValue = yearContainer.value;
+  let yearErrorMessage = document.getElementById("year-error-message");
+
   if (dayValue === "") {
     errorMessage.innerHTML = "This Field is Required";
     errorMessage.style.display = "block";
@@ -58,5 +68,33 @@ function errorCheck() {
     // Clear the error if input is valid
     dayContainer.classList.remove("error");
     errorMessage.style.display = "none";
+  }
+
+  if (monthValue === "") {
+    monthErrorMessage.innerHTML = "This Field is Required";
+    monthErrorMessage.style.display = "block";
+    monthContainer.classList.add("error");
+  } else if (monthValue < 1 || monthValue > 12) {
+    monthContainer.classList.add("error");
+    monthErrorMessage.innerHTML = "Must be a valid month";
+    monthErrorMessage.style.display = "in-line";
+  } else {
+    // Clear the error if input is valid
+    monthContainer.classList.remove("error");
+    monthErrorMessage.style.display = "none";
+  }
+
+  if (yearValue === "") {
+    yearErrorMessage.innerHTML = "This Field is Required";
+    yearErrorMessage.style.display = "block";
+    yearContainer.classList.add("error");
+  } else if (yearValue < 0 || yearValue > currentYear) {
+    yearContainer.classList.add("error");
+    yearErrorMessage.innerHTML = "Must be a valid year";
+    yearErrorMessage.style.display = "in-line";
+  } else {
+    // Clear the error if input is valid
+    yearContainer.classList.remove("error");
+    yearErrorMessage.style.display = "none";
   }
 }
