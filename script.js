@@ -1,17 +1,32 @@
 function calculateAge() {
-  // Current year
-  let today = new Date().getFullYear();
-  let month = new Date().getMonth();
-  let day = new Date().getDate();
+  // Current date
+  let today = new Date();
+  let currentYear = today.getFullYear();
+  let currentMonth = today.getMonth() + 1; // Months are 0-based, so add 1
+  let currentDay = today.getDate();
 
   // Get birth date values
-  let birthDay = document.getElementById("day").value;
-  let birthMonth = document.getElementById("month").value;
-  let birthYear = document.getElementById("year").value;
-  //We getting active again
-  let ageYear = today - birthYear;
-  let ageMonth = month - birthMonth;
-  let ageDay = day - birthDay;
+  let birthDay = parseInt(document.getElementById("day").value, 10);
+  let birthMonth = parseInt(document.getElementById("month").value, 10);
+  let birthYear = parseInt(document.getElementById("year").value, 10);
+
+  // Initial age calculation
+  let ageYear = currentYear - birthYear;
+  let ageMonth = currentMonth - birthMonth;
+  let ageDay = currentDay - birthDay;
+
+  // Adjust if birth month hasn't occurred yet
+  if (ageMonth < 0) {
+    ageYear--; // Subtract one year
+    ageMonth += 12; // Wrap around months (add 12 to negative value)
+  }
+
+  // Adjust if birth day hasn't occurred yet this month
+  if (ageDay < 0) {
+    ageMonth--; // Subtract one month
+    let daysInLastMonth = new Date(currentYear, currentMonth - 1, 0).getDate(); // Get days in the previous month
+    ageDay += daysInLastMonth; // Add the days from the previous month
+  }
 
   // Update the result display
   document.getElementById("years-result").innerHTML = `   <p>
@@ -26,7 +41,6 @@ function calculateAge() {
               <i><span>${ageDay}</span> days</i>
             </p>`;
 }
-
 function errorCheck() {
   let dayContainer = document.getElementById("day");
   let dayValue = dayContainer.value;
@@ -46,5 +60,3 @@ function errorCheck() {
     errorMessage.style.display = "none";
   }
 }
-
-//Man will hop on this tomorrow
