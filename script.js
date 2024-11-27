@@ -41,6 +41,7 @@ function calculateAge() {
               <i><span>${ageDay}</span> days</i>
             </p>`;
 }
+// Error Checking
 function errorCheck() {
   let dayContainer = document.getElementById("day");
   let dayValue = dayContainer.value;
@@ -98,3 +99,5 @@ function errorCheck() {
     yearErrorMessage.style.display = "none";
   }
 }
+
+//Ran out of gas today
