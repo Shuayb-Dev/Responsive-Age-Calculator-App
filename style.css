@@ -36,7 +36,7 @@ input {
   font-size: 20px;
   font-weight: bold;
   height: 40px;
-  width: 95px;
+  width: 105px;
 }
 
 input:focus {
@@ -99,4 +99,62 @@ hr {
   top: 35px;
   width: 98%;
   right: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .calendar-container {
+    height: 355px;
+    width: 250px;
+    border-radius: 15px 15px 100px 15px;
+  }
+
+  input {
+    width: 50px;
+    font-size: 15px;
+  }
+
+  input::placeholder {
+    font-size: 15px;
+    position: relative;
+    right: 5px;
+  }
+
+  .arrow {
+    position: relative;
+    left: 100px;
+    height: 50px;
+    width: 50px;
+    top: 5px;
+  }
+
+  .arrow img {
+    height: 30px;
+    width: 30px;
+  }
+
+  hr {
+    position: relative;
+    top: 40px;
+    width: 110%;
+  }
+
+  .result {
+    font-size: 45px;
+    position: relative;
+    bottom: 10px;
+  }
+
+  .months-result {
+    position: relative;
+    bottom: 60px;
+  }
+
+  .day-result {
+    position: relative;
+    bottom: 130px;
+  }
+
+  label {
+    font-size: 11px;
+  }
 }
