@@ -45,24 +45,29 @@ function calculateAge() {
 function errorCheck() {
   let dayContainer = document.getElementById("day");
   let dayValue = dayContainer.value;
+  let dayResult = document.getElementById("days-result");
   let errorMessage = document.getElementById("error-message");
 
   let monthContainer = document.getElementById("month");
   let monthValue = monthContainer.value;
   let monthErrorMessage = document.getElementById("month-error-message");
+  let MonthResult = document.getElementById("months-result");
 
   let today = new Date();
   let currentYear = today.getFullYear();
   let yearContainer = document.getElementById("year");
   let yearValue = yearContainer.value;
   let yearErrorMessage = document.getElementById("year-error-message");
+  let yearResult = document.getElementById("years-result");
 
   if (dayValue === "") {
     errorMessage.innerHTML = "This Field is Required";
     errorMessage.style.display = "block";
     dayContainer.classList.add("error");
+    dayResult.innerHTML = "<p><i><span>--</span> days</i></p>";
   } else if (dayValue < 1 || dayValue > 31) {
     dayContainer.classList.add("error");
+    dayResult.innerHTML = "<p><i><span>--</span> days</i></p>";
     errorMessage.innerHTML = "Must be a valid day";
     errorMessage.style.display = "in-line";
   } else {
@@ -75,10 +80,11 @@ function errorCheck() {
     monthErrorMessage.innerHTML = "This Field is Required";
     monthErrorMessage.style.display = "block";
     monthContainer.classList.add("error");
+    MonthResult.innerHTML = "<p><i><span>--</span> months</i></p>";
   } else if (monthValue < 1 || monthValue > 12) {
     monthContainer.classList.add("error");
+    MonthResult.innerHTML = "<p><i><span>--</span> months</i></p>";
     monthErrorMessage.innerHTML = "Must be a valid month";
-    monthErrorMessage.style.display = "in-line";
   } else {
     // Clear the error if input is valid
     monthContainer.classList.remove("error");
@@ -89,15 +95,15 @@ function errorCheck() {
     yearErrorMessage.innerHTML = "This Field is Required";
     yearErrorMessage.style.display = "block";
     yearContainer.classList.add("error");
+    yearResult.innerHTML = "<p><i><span>--</span> years</i></p>";
   } else if (yearValue < 0 || yearValue > currentYear) {
     yearContainer.classList.add("error");
+    yearErrorMessage.style.display = "block";
+    yearResult.innerHTML = "<p><i><span>--</span> years</i></p>";
     yearErrorMessage.innerHTML = "Must be a valid year";
-    yearErrorMessage.style.display = "in-line";
   } else {
     // Clear the error if input is valid
     yearContainer.classList.remove("error");
     yearErrorMessage.style.display = "none";
   }
 }
-
-//Ran out of gas today
